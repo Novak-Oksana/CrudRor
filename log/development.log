@@ -3534,3 +3534,69 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 568ms (Views: 558.9ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-12-03 21:26:14 +0200
+  [1m[35m (34.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TasksController#index as HTML
+Completed 401 Unauthorized in 53ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/login" for 127.0.0.1 at 2017-12-03 21:26:28 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (131.0ms)
+Completed 200 OK in 1117ms (Views: 1060.9ms | ActiveRecord: 26.0ms)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2017-12-03 21:26:32 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/h5uwY8ogqy+QME91Mz98xIgtsMufms5iC79EpvaLPrsDuv8D+x++2LwjyFN3ZjtBbkQuH11aQyVLmMn7IcfZQ==", "user"=>{"email"=>"oksana.nov@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (51.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "oksana.nov@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (31.0ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2017-12-03 19:26:32.535441"], ["last_sign_in_at", "2017-11-29 10:39:13.686957"], ["sign_in_count", 6], ["updated_at", "2017-12-03 19:26:32.537441"], ["id", "7776195b-09b2-4310-bc39-2d0e1ff40f0b"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 508ms (ActiveRecord: 84.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-03 21:26:32 +0200
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", "7776195b-09b2-4310-bc39-2d0e1ff40f0b"], ["LIMIT", 1]]
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (28.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1[0m  [["user_id", "7776195b-09b2-4310-bc39-2d0e1ff40f0b"]]
+  Rendered tasks/index.html.erb within layouts/application (144.0ms)
+Completed 200 OK in 452ms (Views: 325.8ms | ActiveRecord: 33.0ms)
+
+
+Started GET "/tasks/edit?id=3" for 127.0.0.1 at 2017-12-03 21:26:36 +0200
+Processing by TasksController#edit as HTML
+  Parameters: {"authenticity_token"=>"8WTMHs1Z3N9DGB9eEMQBFERZFFytPewy+Y1r/Y0es7RRsEj3niazDRLquTgr7/kj1S/DA1oan3fdsdDNVSYawg==", "id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", "7776195b-09b2-4310-bc39-2d0e1ff40f0b"], ["LIMIT", 1]]
+  [1m[36mTask Load (1.0ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."id" = $2 LIMIT $3[0m  [["user_id", "7776195b-09b2-4310-bc39-2d0e1ff40f0b"], ["id", 3], ["LIMIT", 1]]
+  Rendering tasks/edit.html.erb within layouts/application
+  Rendered tasks/edit.html.erb within layouts/application (65.0ms)
+Completed 200 OK in 304ms (Views: 281.0ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/tasks/update/3" for 127.0.0.1 at 2017-12-03 21:26:44 +0200
+Processing by TasksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PY/Zk6qhRLMJn8V1JiTccV/JEdCsQ3CPzpm9kWNCQ/qdW116+d4rYVhtYxMdDyRGzr/Gj1tkA8rqpQahu3rqjA==", "task"=>{"id"=>"3", "name"=>"Ффф123", "description"=>"Ввв", "importance"=>"111", "expiry(3i)"=>"1", "expiry(2i)"=>"1", "expiry(1i)"=>"2017"}, "commit"=>"save", "id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", "7776195b-09b2-4310-bc39-2d0e1ff40f0b"], ["LIMIT", 1]]
+  [1m[36mTask Load (1.0ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."id" = $2 LIMIT $3[0m  [["user_id", "7776195b-09b2-4310-bc39-2d0e1ff40f0b"], ["id", 3], ["LIMIT", 1]]
+Unpermitted parameter: :id
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "tasks" SET "name" = $1, "updated_at" = $2 WHERE "tasks"."id" = $3[0m  [["name", "Ффф123"], ["updated_at", "2017-12-03 19:26:44.962152"], ["id", 3]]
+  [1m[35m (15.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 36ms (ActiveRecord: 18.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-03 21:26:44 +0200
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", "7776195b-09b2-4310-bc39-2d0e1ff40f0b"], ["LIMIT", 1]]
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (1.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1[0m  [["user_id", "7776195b-09b2-4310-bc39-2d0e1ff40f0b"]]
+  Rendered tasks/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 164ms (Views: 157.9ms | ActiveRecord: 1.0ms)
+
+
