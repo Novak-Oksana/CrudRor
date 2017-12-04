@@ -1,4 +1,4 @@
 class Task < ApplicationRecord
-  validates_presence_of :name, :description
+  validates :name, length: { minimum: 3 }
   belongs_to :user
 end

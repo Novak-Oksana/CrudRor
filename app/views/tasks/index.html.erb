@@ -4,7 +4,7 @@
   <% @tasks.each do |task| %>
     <div>
       <tr>
-       <td><%= task.name %></td>
+        <td><%= task.name %></td>
         <td><%= task.done %></td>
         <td><%= link_to 'update task', edit_task_path(id: task.id), method: :get%></td>
         <td><%= link_to 'delete task', delete_task_path(id: task.id), method: :delete %></td>
