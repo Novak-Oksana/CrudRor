@@ -9,11 +9,18 @@
   </head>
 
   <body>
+  <div style="justify-content: space-between; display: flex">
+    <div>
+     <%= link_to "En", set_locale_path(locale: "en"), method: :put %> |
+     <%= link_to "Ru", set_locale_path(locale: "ru"), method: :put %>
+    </div>
+  </div>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
     <%= yield %>
 
-   <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+   <%= link_to t('Sign_out'), destroy_user_session_path, method: :delete %>
   </body>
 </html>

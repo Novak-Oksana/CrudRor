@@ -3,7 +3,7 @@
     <%= f.text_field :description, placeholder: 'description' %>
     <%= f.text_field :importance, placeholder: 'importance' %>
     <%= f.date_select :expiry, order: [:day, :month, :year] %>
-    <%= f.submit "save" %>
-    <%= link_to'Back', '/' %>
+    <%= f.submit t('save') %>
+    <%= link_to t('back'), '/' %>
 
 <% end %>

@@ -5,6 +5,6 @@
     <%= f.text_field :importance, placeholder: 'importance' %>
     <%= f.date_select :expiry, order: [:day, :month, :year] %>
     <%= f.check_box :done %>
-    <%= f.submit "save" %>
+    <%= f.submit t('save') %>
 <% end %>
-<%= link_to'Back', '/' %>
+<%= link_to t('back'), '/' %>

@@ -30,9 +30,17 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
-  name: "name"
-  description: "description"
-  importance: "importance"
-  save: "save"
-  new_task: "New task"
+    new_task: "New task"
+    name:  "Name"
+    status: "Status"
+    description: "Description"
+    importance: "Importance"
+    expiry: "Expiry"
+    done: "Done"
+    undone: "Undone"
+    update: "Update"
+    delete: "Delete"
+    exit: "SignOut"
+    save: "Save"
+    back: "Back"
+    Sign_out: "Sign out"
