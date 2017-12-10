@@ -9642,3 +9642,33 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 271ms (Views: 267.7ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/auth/login" for 127.0.0.1 at 2017-12-08 01:04:41 +0200
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (1444.1ms)
+Completed 200 OK in 2506ms (Views: 2417.1ms | ActiveRecord: 11.0ms)
+
+
+Started POST "/auth/login?locale=en" for 127.0.0.1 at 2017-12-08 01:05:28 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iEgYfW+wcdt6BBxHrz862WhKFfw/RWDY2QJ+CfM7noBYb5FZwPsgOmstG22oiAyy89wm4Fq9+9vxjYcHK1jwpw==", "user"=>{"email"=>"oksana.nov@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in", "locale"=>"en"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "oksana.nov@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (65.0ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2017-12-07 23:05:28.906917"], ["last_sign_in_at", "2017-12-07 16:43:36.736919"], ["sign_in_count", 28], ["updated_at", "2017-12-07 23:05:28.909917"], ["id", "7776195b-09b2-4310-bc39-2d0e1ff40f0b"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/?locale=ru
+Completed 302 Found in 751ms (ActiveRecord: 69.0ms)
+
+
+Started GET "/?locale=ru" for 127.0.0.1 at 2017-12-08 01:05:29 +0200
+Processing by TasksController#index as HTML
+  Parameters: {"locale"=>"ru"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", "7776195b-09b2-4310-bc39-2d0e1ff40f0b"], ["LIMIT", 1]]
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (2.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY expiry[0m  [["user_id", "7776195b-09b2-4310-bc39-2d0e1ff40f0b"]]
+  Rendered tasks/index.html.erb within layouts/application (40.0ms)
+Completed 200 OK in 341ms (Views: 255.8ms | ActiveRecord: 9.0ms)
+
+
